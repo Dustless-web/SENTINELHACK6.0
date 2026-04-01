@@ -30,12 +30,34 @@ const HeroSection = () => {
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-16 pb-10">
       <div className="absolute inset-0 z-0 cyber-grid opacity-30"></div>
       
-      {/* Squid Game Shapes Background */}
+      {/* Animated Squid Game Shapes Background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-16 h-16 md:w-24 md:h-24 border-4 border-squid-pink/30 rounded-full animate-pulse-neon"></div>
-        <div className="absolute top-40 right-20 w-12 h-12 md:w-20 md:h-20 border-4 border-squid-pink/30 rotate-45 animate-pulse-neon"></div>
-        <div className="absolute bottom-40 left-20 w-0 h-0 border-l-[30px] border-r-[30px] border-b-[52px] md:border-l-[50px] md:border-r-[50px] md:border-b-[86px] border-l-transparent border-r-transparent border-b-squid-pink/30 animate-pulse-neon"></div>
-        <div className="absolute bottom-20 right-10 w-14 h-14 md:w-20 md:h-20 border-4 border-squid-teal/30 rounded-full animate-pulse-neon"></div>
+        {/* Floating Circles */}
+        <div className="absolute top-[10%] left-[5%] w-16 h-16 md:w-24 md:h-24 border-4 border-squid-pink/40 rounded-full squid-shape-float squid-shape-pulse"></div>
+        <div className="absolute top-[60%] left-[8%] w-12 h-12 md:w-16 md:h-16 border-3 border-squid-teal/30 rounded-full squid-shape-float-reverse squid-shape-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-[30%] right-[3%] w-20 h-20 md:w-28 md:h-28 border-4 border-squid-pink/25 rounded-full squid-shape-drift-right squid-shape-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-[15%] right-[12%] w-14 h-14 md:w-20 md:h-20 border-3 border-squid-teal/35 rounded-full squid-shape-float squid-shape-pulse" style={{animationDelay: '3s'}}></div>
+        
+        {/* Floating Triangles */}
+        <div className="absolute top-[25%] left-[15%] squid-shape-drift-left squid-shape-pulse" style={{animationDelay: '0.5s'}}>
+          <div className="w-0 h-0 border-l-[25px] border-r-[25px] border-b-[43px] md:border-l-[40px] md:border-r-[40px] md:border-b-[69px] border-l-transparent border-r-transparent border-b-squid-pink/30"></div>
+        </div>
+        <div className="absolute bottom-[35%] left-[25%] squid-shape-float-reverse squid-shape-pulse" style={{animationDelay: '1.5s'}}>
+          <div className="w-0 h-0 border-l-[18px] border-r-[18px] border-b-[31px] md:border-l-[30px] md:border-r-[30px] md:border-b-[52px] border-l-transparent border-r-transparent border-b-squid-teal/25"></div>
+        </div>
+        <div className="absolute top-[50%] right-[8%] squid-shape-drift-right squid-shape-pulse" style={{animationDelay: '2.5s'}}>
+          <div className="w-0 h-0 border-l-[22px] border-r-[22px] border-b-[38px] md:border-l-[35px] md:border-r-[35px] md:border-b-[60px] border-l-transparent border-r-transparent border-b-squid-pink/35"></div>
+        </div>
+        
+        {/* Floating Squares */}
+        <div className="absolute top-[45%] left-[3%] w-12 h-12 md:w-18 md:h-18 border-4 border-squid-pink/30 squid-shape-spin squid-shape-pulse"></div>
+        <div className="absolute top-[15%] right-[15%] w-14 h-14 md:w-20 md:h-20 border-4 border-squid-teal/25 squid-shape-spin-reverse squid-shape-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-[25%] right-[5%] w-10 h-10 md:w-16 md:h-16 border-3 border-squid-pink/35 squid-shape-spin squid-shape-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-[10%] left-[20%] w-16 h-16 md:w-22 md:h-22 border-4 border-squid-teal/30 squid-shape-spin-reverse squid-shape-pulse" style={{animationDelay: '3s'}}></div>
+        
+        {/* Additional ambient shapes */}
+        <div className="absolute top-[70%] right-[25%] w-8 h-8 md:w-12 md:h-12 border-2 border-squid-pink/20 rounded-full squid-shape-float squid-shape-pulse" style={{animationDelay: '4s'}}></div>
+        <div className="absolute top-[5%] left-[40%] w-10 h-10 md:w-14 md:h-14 border-2 border-squid-teal/20 squid-shape-drift-left squid-shape-pulse" style={{animationDelay: '1.5s'}}></div>
       </div>
       
       <div className="container mx-auto px-4 z-10 mt-12">

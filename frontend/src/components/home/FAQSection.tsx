@@ -71,7 +71,17 @@ const FAQSection: React.FC = () => {
   };
 
   return (
-    <section id="faqs" className="py-12 sm:py-16 md:py-20 relative">
+    <section id="faqs" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
+      {/* Animated Background Shapes */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[12%] left-[5%] w-14 h-14 md:w-20 md:h-20 border-3 border-squid-teal/20 rounded-full squid-shape-drift-left squid-shape-pulse"></div>
+        <div className="absolute bottom-[20%] right-[6%] squid-shape-float squid-shape-pulse" style={{animationDelay: '1.5s'}}>
+          <div className="w-0 h-0 border-l-[20px] border-r-[20px] border-b-[35px] md:border-l-[28px] md:border-r-[28px] md:border-b-[48px] border-l-transparent border-r-transparent border-b-squid-pink/20"></div>
+        </div>
+        <div className="absolute top-[50%] right-[3%] w-12 h-12 md:w-16 md:h-16 border-2 border-squid-teal/25 squid-shape-spin squid-shape-pulse" style={{animationDelay: '2.5s'}}></div>
+        <div className="absolute bottom-[40%] left-[4%] w-10 h-10 md:w-14 md:h-14 border-2 border-squid-pink/20 rounded-full squid-shape-float-reverse squid-shape-pulse" style={{animationDelay: '3.5s'}}></div>
+      </div>
+      
       <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

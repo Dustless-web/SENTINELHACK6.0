@@ -36,7 +36,17 @@ const tracks = [
 
 const TracksSection = () => {
   return (
-    <section id="tracks" className="py-12 sm:py-16 md:py-20 relative">
+    <section id="tracks" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
+      {/* Animated Background Shapes */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[10%] right-[5%] w-16 h-16 md:w-24 md:h-24 border-3 border-squid-pink/20 rounded-full squid-shape-float squid-shape-pulse"></div>
+        <div className="absolute bottom-[20%] left-[3%] w-12 h-12 md:w-16 md:h-16 border-2 border-squid-teal/25 squid-shape-spin squid-shape-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-[40%] left-[8%] squid-shape-drift-left squid-shape-pulse" style={{animationDelay: '2s'}}>
+          <div className="w-0 h-0 border-l-[20px] border-r-[20px] border-b-[35px] md:border-l-[30px] md:border-r-[30px] md:border-b-[52px] border-l-transparent border-r-transparent border-b-squid-pink/20"></div>
+        </div>
+        <div className="absolute bottom-[40%] right-[6%] w-14 h-14 md:w-20 md:h-20 border-3 border-squid-teal/20 rounded-full squid-shape-float-reverse squid-shape-pulse" style={{animationDelay: '3s'}}></div>
+      </div>
+      
       <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

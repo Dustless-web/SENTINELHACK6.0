@@ -24,8 +24,19 @@ const RulesSection = () => {
   ];
 
   return (
-    <section id="rules" className="py-16 md:py-24 relative">
+    <section id="rules" className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 z-0 cyber-grid opacity-30"></div>
+      
+      {/* Animated Background Shapes */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[8%] right-[10%] w-16 h-16 md:w-24 md:h-24 border-3 border-squid-pink/20 rounded-full squid-shape-float squid-shape-pulse"></div>
+        <div className="absolute bottom-[15%] left-[5%] squid-shape-drift-right squid-shape-pulse" style={{animationDelay: '1s'}}>
+          <div className="w-0 h-0 border-l-[22px] border-r-[22px] border-b-[38px] md:border-l-[30px] md:border-r-[30px] md:border-b-[52px] border-l-transparent border-r-transparent border-b-squid-teal/20"></div>
+        </div>
+        <div className="absolute top-[45%] left-[3%] w-14 h-14 md:w-18 md:h-18 border-3 border-squid-pink/25 squid-shape-spin squid-shape-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-[35%] right-[4%] w-12 h-12 md:w-16 md:h-16 border-2 border-squid-teal/25 rounded-full squid-shape-float-reverse squid-shape-pulse" style={{animationDelay: '3s'}}></div>
+      </div>
+      
       <div className="container mx-auto px-4 z-10 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

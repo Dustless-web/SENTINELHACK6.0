@@ -4,7 +4,17 @@ import { motion } from 'framer-motion';
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-12 sm:py-16 md:py-20 relative">
+    <section id="about" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
+      {/* Animated Background Shapes */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[15%] left-[2%] w-14 h-14 md:w-20 md:h-20 border-3 border-squid-teal/25 rounded-full squid-shape-drift-right squid-shape-pulse"></div>
+        <div className="absolute bottom-[25%] right-[4%] squid-shape-float squid-shape-pulse" style={{animationDelay: '1.5s'}}>
+          <div className="w-0 h-0 border-l-[18px] border-r-[18px] border-b-[31px] md:border-l-[25px] md:border-r-[25px] md:border-b-[43px] border-l-transparent border-r-transparent border-b-squid-pink/20"></div>
+        </div>
+        <div className="absolute top-[60%] right-[8%] w-12 h-12 md:w-16 md:h-16 border-2 border-squid-teal/20 squid-shape-spin-reverse squid-shape-pulse" style={{animationDelay: '2.5s'}}></div>
+        <div className="absolute bottom-[10%] left-[6%] w-10 h-10 md:w-14 md:h-14 border-2 border-squid-pink/25 rounded-full squid-shape-float-reverse squid-shape-pulse" style={{animationDelay: '3.5s'}}></div>
+      </div>
+      
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-16 items-center">
           <motion.div

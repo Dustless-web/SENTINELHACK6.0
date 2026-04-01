@@ -10,6 +10,7 @@ Transform the existing Sentinel Hack 5.0 hackathon website into Sentinel Hack 6.
 4. Update hackathon domains to: Data Science, Cybersecurity & Blockchain, Cloud Computing, Agentic AI
 5. Update footer contact: Email: sentinelhack@ksit.edu.in, Student Coordinators: Pranav (7483986779) & Priyadarshini E P (7259905558)
 6. Keep same logo, college address, and basic structure
+7. **Add animated floating Squid Game shapes in the background**
 
 ## User Personas
 - College students interested in hackathons
@@ -29,6 +30,20 @@ Transform the existing Sentinel Hack 5.0 hackathon website into Sentinel Hack 6.
 - Added iconic Squid Game shapes (circle, triangle, square) throughout the website
 - Updated all neon effects to match the new color scheme
 - Created new CSS utility classes: `squid-card`, `neon-text-pink`, `neon-text-teal`
+
+### Animated Background (New)
+- Created slow-motion floating animations for all Squid Game shapes
+- Added CSS keyframe animations:
+  - `float-slow` / `float-reverse` - gentle up/down floating
+  - `drift-left` / `drift-right` - horizontal drifting movement
+  - `spin-slow` / `spin-slow-reverse` - slow rotation for squares
+  - `pulse-glow` - pulsing glow effect
+- Applied animations to ALL sections: Hero, About, Tracks, Rules, Sponsors, FAQs, CTA
+- Shapes are scattered across the background with varying:
+  - Sizes (small to large)
+  - Opacities (15-35%)
+  - Animation delays (staggered for natural feel)
+  - Colors (alternating pink and teal)
 
 ### Content Updates
 - Hero section: "SENTINEL HACK 6.0" with "Let the games begin!" tagline
@@ -51,7 +66,7 @@ Transform the existing Sentinel Hack 5.0 hackathon website into Sentinel Hack 6.
 - `/app/frontend/src/components/layout/Footer.tsx`
 - `/app/frontend/src/components/layout/Navbar.tsx`
 - `/app/frontend/tailwind.config.ts`
-- `/app/frontend/src/index.css`
+- `/app/frontend/src/index.css` (added animation keyframes)
 - `/app/frontend/vite.config.ts`
 
 ## Testing Status
@@ -59,6 +74,7 @@ Transform the existing Sentinel Hack 5.0 hackathon website into Sentinel Hack 6.
 - Mobile responsiveness verified
 - Theme colors and shapes verified
 - Contact information verified
+- Animations working smoothly
 
 ## Prioritized Backlog
 

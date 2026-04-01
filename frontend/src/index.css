@@ -139,6 +139,76 @@
     @apply bg-cyber-grid bg-grid;
   }
 
+  /* Squid Game Animated Shapes */
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  @keyframes float-reverse {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(20px) rotate(-5deg); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.3; filter: drop-shadow(0 0 5px currentColor); }
+    50% { opacity: 0.6; filter: drop-shadow(0 0 15px currentColor); }
+  }
+
+  @keyframes drift-left {
+    0% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(-15px) translateY(-10px); }
+    50% { transform: translateX(-25px) translateY(5px); }
+    75% { transform: translateX(-10px) translateY(15px); }
+    100% { transform: translateX(0) translateY(0); }
+  }
+
+  @keyframes drift-right {
+    0% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(15px) translateY(10px); }
+    50% { transform: translateX(25px) translateY(-5px); }
+    75% { transform: translateX(10px) translateY(-15px); }
+    100% { transform: translateX(0) translateY(0); }
+  }
+
+  @keyframes spin-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes spin-slow-reverse {
+    0% { transform: rotate(45deg); }
+    100% { transform: rotate(405deg); }
+  }
+
+  .squid-shape-float {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
+  .squid-shape-float-reverse {
+    animation: float-reverse 7s ease-in-out infinite;
+  }
+
+  .squid-shape-pulse {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  .squid-shape-drift-left {
+    animation: drift-left 12s ease-in-out infinite;
+  }
+
+  .squid-shape-drift-right {
+    animation: drift-right 10s ease-in-out infinite;
+  }
+
+  .squid-shape-spin {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  .squid-shape-spin-reverse {
+    animation: spin-slow-reverse 25s linear infinite;
+  }
+
   .glitch {
     position: relative;
   }
