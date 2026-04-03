@@ -106,7 +106,7 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <button 
-            className="lg:hidden text-white"
+            className="lg:hidden text-white z-50 relative"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -119,18 +119,18 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed lg:hidden left-0 right-0 top-[58px] bottom-0 backdrop-blur-lg bg-black/90 z-50 overflow-y-auto border-t border-white/10"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="lg:hidden w-full backdrop-blur-lg bg-black/95 border-t border-white/10"
           >
-            <div className="container mx-auto px-4 py-6 flex flex-col space-y-5">
+            <div className="px-4 py-6 flex flex-col space-y-5">
               {navItems.map((item, index) => (
                 <button
                   key={index}
                   onClick={() => scrollToSection(item.id)}
-                  className="font-cyber text-2xl uppercase tracking-wide py-2 text-left text-gray-100 hover:text-squid-pink transition-colors duration-300 border-b border-white/10"
+                  className="font-cyber text-xl uppercase tracking-wide py-3 text-left text-gray-100 hover:text-squid-pink transition-colors duration-300 border-b border-white/10"
                 >
                   {item.name}
                 </button>
@@ -142,7 +142,7 @@ const Navbar = () => {
                 onClick={() => {
                   setIsOpen(false);
                 }}
-                className="font-cyber text-xl uppercase tracking-wide bg-gradient-to-r from-squid-pink to-squid-teal px-6 py-3 mt-2 text-center rounded clip-slant shadow-neon-pink"
+                className="font-cyber text-lg uppercase tracking-wide bg-gradient-to-r from-squid-pink to-squid-teal px-6 py-3 mt-4 text-center rounded clip-slant shadow-neon-pink block"
               >
                 Register Now
               </a>

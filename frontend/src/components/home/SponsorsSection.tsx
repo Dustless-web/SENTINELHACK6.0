@@ -2,6 +2,26 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const SponsorsSection = () => {
+  // Sponsor data - replace with actual sponsor information
+  const sponsors = [
+    {
+      name: "Samartha InfoSolutions Pvt. Ltd.",
+      logo: "/lovable-uploads/samartha.png",
+      tier: "Gold",
+      website: "#"
+    },
+    
+  ];
+
+  const getTierColor = (tier: string) => {
+    switch (tier.toLowerCase()) {
+      case 'gold': return 'border-yellow-400/60 text-yellow-400';
+      case 'silver': return 'border-gray-400/60 text-gray-400';
+      case 'bronze': return 'border-orange-400/60 text-orange-400';
+      default: return 'border-squid-teal/60 text-squid-teal';
+    }
+  };
+
   return (
     <section id="sponsors" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
       <div className="absolute inset-0 z-0 cyber-grid opacity-10"></div>
@@ -39,33 +59,37 @@ const SponsorsSection = () => {
           </div>
         </motion.div>
 
-        {/* Sponsors Coming Soon Card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-2xl mx-auto"
-        >
-          <div className="squid-card border-2 border-squid-pink/40 rounded-xl p-8 md:p-12 text-center animate-border-pulse card-hover-effect">
-            {/* Animated Squid Game Shapes */}
-            <div className="flex items-center justify-center gap-6 mb-6">
-              <div className="w-12 h-12 md:w-16 md:h-16 border-3 border-squid-pink/60 rounded-full squid-shape-float squid-shape-pulse"></div>
-              <div className="w-0 h-0 border-l-[18px] border-r-[18px] border-b-[31px] md:border-l-[24px] md:border-r-[24px] md:border-b-[41px] border-l-transparent border-r-transparent border-b-squid-pink/60 squid-shape-float-reverse squid-shape-pulse" style={{animationDelay: '0.5s'}}></div>
-              <div className="w-12 h-12 md:w-16 md:h-16 border-3 border-squid-pink/60 squid-shape-spin squid-shape-pulse" style={{animationDelay: '1s'}}></div>
-            </div>
-            
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-cyber neon-text-teal mb-4">
-              Sponsors
-            </h3>
-            <p className="text-xl md:text-2xl text-gray-300 mb-2">
-              Will be announced soon!
-            </p>
-            <p className="text-sm md:text-base text-gray-500">
-              Stay tuned for exciting partnerships
-            </p>
-          </div>
-        </motion.div>
+        {/* Sponsors Grid */}
+        <div className="flex justify-center">
+          {sponsors.map((sponsor, index) => (
+            <motion.div
+              key={sponsor.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="squid-card border-2 border-squid-pink/40 rounded-xl p-6 text-center animate-border-pulse card-hover-effect group max-w-md"
+            >
+              <a 
+                href={sponsor.website} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <div className="mb-4 flex justify-center">
+                  <img 
+                    src={sponsor.logo} 
+                    alt={`${sponsor.name} logo`}
+                    className="max-w-full max-h-32 object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+                  />
+                </div>
+                <h3 className="text-lg font-cyber text-white mb-2 group-hover:text-squid-pink transition-colors duration-300">
+                  {sponsor.name}
+                </h3>
+              </a>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
