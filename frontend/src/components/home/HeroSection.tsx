@@ -60,8 +60,8 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-4 z-10 mt-8">
         <div className="flex flex-col items-center justify-center mb-8 md:mb-10">
-          <div className="flex flex-row items-center justify-center gap-4 md:gap-6 lg:gap-10">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 lg:gap-12">
+            <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 flex-shrink-0">
               <img 
                 src="/lovable-uploads/492532dc-e4ce-49f8-8c94-b287bed8e7d8.png" 
                 alt="KSIT Logo" 
@@ -69,14 +69,14 @@ const HeroSection = () => {
               />
             </div>
 
-            <div className="text-center">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-cyber tracking-wide mb-1 md:mb-2 text-white">
+            <div className="text-center md:text-left">
+              <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-cyber tracking-wide mb-2 md:mb-2 text-white">
                 K S INSTITUTE OF TECHNOLOGY
               </h2>
-              <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-1 md:mb-2 uppercase tracking-wide">
+              <p className="text-xs sm:text-sm md:text-lg text-gray-300 mb-3 md:mb-2 uppercase tracking-wide">
                 Department of Computer Science and Engineering
               </p>
-              <p className="inline-block text-lg sm:text-xl md:text-2xl text-squid-pink font-cyber tracking-wide px-3 sm:px-4 py-1 rounded-md border border-squid-pink/60 bg-black/50 shadow-[0_0_22px_rgba(255,31,127,0.35)]">
+              <p className="inline-block text-sm sm:text-base md:text-2xl text-squid-pink font-cyber tracking-wide px-3 sm:px-4 py-1 rounded-md border border-squid-pink/60 bg-black/50 shadow-[0_0_22px_rgba(255,31,127,0.35)]">
                 FIREFOX CLUB PRESENTS
               </p>
             </div>
