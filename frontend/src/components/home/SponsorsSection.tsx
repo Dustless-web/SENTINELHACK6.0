@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '../../hooks/use-mobile';
 
 const SponsorsSection = () => {
+  const isMobile = useIsMobile();
   // Sponsor data - replace with actual sponsor information
   const sponsors = [
     {
@@ -27,14 +29,16 @@ const SponsorsSection = () => {
       <div className="absolute inset-0 z-0 cyber-grid opacity-10"></div>
       
       {/* Animated Background Shapes */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[10%] right-[8%] w-16 h-16 md:w-22 md:h-22 border-3 border-squid-pink/15 rounded-full squid-shape-float squid-shape-pulse"></div>
-        <div className="absolute bottom-[18%] left-[4%] w-12 h-12 md:w-18 md:h-18 border-2 border-squid-teal/20 squid-shape-spin-reverse squid-shape-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-[35%] left-[6%] squid-shape-drift-right squid-shape-pulse" style={{animationDelay: '2s'}}>
-          <div className="w-0 h-0 border-l-[18px] border-r-[18px] border-b-[31px] md:border-l-[25px] md:border-r-[25px] md:border-b-[43px] border-l-transparent border-r-transparent border-b-squid-pink/15"></div>
+      {!isMobile && (
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[10%] right-[8%] w-16 h-16 md:w-22 md:h-22 border-3 border-squid-pink/15 rounded-full"></div>
+          <div className="absolute bottom-[18%] left-[4%] w-12 h-12 md:w-18 md:h-18 border-2 border-squid-teal/20"></div>
+          <div className="absolute top-[35%] left-[6%]">
+            <div className="w-0 h-0 border-l-[18px] border-r-[18px] border-b-[31px] md:border-l-[25px] md:border-r-[25px] md:border-b-[43px] border-l-transparent border-r-transparent border-b-squid-pink/15"></div>
+          </div>
+          <div className="absolute bottom-[30%] right-[5%] w-14 h-14 md:w-18 md:h-18 border-2 border-squid-teal/15 rounded-full"></div>
         </div>
-        <div className="absolute bottom-[30%] right-[5%] w-14 h-14 md:w-18 md:h-18 border-2 border-squid-teal/15 rounded-full squid-shape-float-reverse squid-shape-pulse" style={{animationDelay: '3s'}}></div>
-      </div>
+      )}
       
       <div className="container mx-auto px-4 relative z-10 squid-section-frame">
         <motion.div 
@@ -48,15 +52,17 @@ const SponsorsSection = () => {
             OUR <span className="neon-text-pink">SPONSORS</span>
           </h2>
           <p className="max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-gray-300">
-            Sentinel Hack 6.0 is proudly supported by leading tech companies and organizations committed to fostering innovation.
+            Our elite sponsors provide the resources that will determine who survives the 24-hour challenge. Their support makes the ultimate prize possible.
           </p>
           
           {/* Squid Game Shapes */}
-          <div className="squid-symbol-divider" aria-hidden="true">
-            <div className="w-4 h-4 border-2 border-squid-pink rounded-full squid-shape-float squid-shape-pulse"></div>
-            <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-b-[10px] border-l-transparent border-r-transparent border-b-squid-pink squid-shape-float-reverse squid-shape-pulse" style={{animationDelay: '0.3s'}}></div>
-            <div className="w-4 h-4 border-2 border-squid-pink squid-shape-spin squid-shape-pulse" style={{animationDelay: '0.6s'}}></div>
-          </div>
+          {!isMobile && (
+            <div className="squid-symbol-divider" aria-hidden="true">
+              <div className="w-4 h-4 border-2 border-squid-pink rounded-full squid-shape-float squid-shape-pulse"></div>
+              <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-b-[10px] border-l-transparent border-r-transparent border-b-squid-pink squid-shape-float-reverse squid-shape-pulse" style={{animationDelay: '0.3s'}}></div>
+              <div className="w-4 h-4 border-2 border-squid-pink squid-shape-spin squid-shape-pulse" style={{animationDelay: '0.6s'}}></div>
+            </div>
+          )}
         </motion.div>
 
         {/* Sponsors Grid */}
@@ -81,6 +87,7 @@ const SponsorsSection = () => {
                     src={sponsor.logo} 
                     alt={`${sponsor.name} logo`}
                     className="max-w-full max-h-32 object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+                    loading="lazy"
                   />
                 </div>
                 <h3 className="text-lg font-cyber text-white mb-2 group-hover:text-squid-pink transition-colors duration-300">

@@ -1,19 +1,23 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '../../hooks/use-mobile';
 
 const AboutSection = () => {
+  const isMobile = useIsMobile();
   return (
     <section id="about" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
-      {/* Animated Background Shapes */}
+      {/* Animated Background Shapes - Only on desktop */}
+      {!isMobile && (
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[15%] left-[2%] w-14 h-14 md:w-20 md:h-20 border-3 border-squid-teal/25 rounded-full squid-shape-drift-right squid-shape-pulse"></div>
-        <div className="absolute bottom-[25%] right-[4%] squid-shape-float squid-shape-pulse" style={{animationDelay: '1.5s'}}>
+        <div className="absolute top-[15%] left-[2%] w-14 h-14 md:w-20 md:h-20 border-3 border-squid-teal/25 rounded-full"></div>
+        <div className="absolute bottom-[25%] right-[4%]">
           <div className="w-0 h-0 border-l-[18px] border-r-[18px] border-b-[31px] md:border-l-[25px] md:border-r-[25px] md:border-b-[43px] border-l-transparent border-r-transparent border-b-squid-pink/20"></div>
         </div>
-        <div className="absolute top-[60%] right-[8%] w-12 h-12 md:w-16 md:h-16 border-2 border-squid-teal/20 squid-shape-spin-reverse squid-shape-pulse" style={{animationDelay: '2.5s'}}></div>
-        <div className="absolute bottom-[10%] left-[6%] w-10 h-10 md:w-14 md:h-14 border-2 border-squid-pink/25 rounded-full squid-shape-float-reverse squid-shape-pulse" style={{animationDelay: '3.5s'}}></div>
+        <div className="absolute top-[60%] right-[8%] w-12 h-12 md:w-16 md:h-16 border-2 border-squid-teal/20"></div>
+        <div className="absolute bottom-[10%] left-[6%] w-10 h-10 md:w-14 md:h-14 border-2 border-squid-pink/25 rounded-full"></div>
       </div>
+      )}
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="squid-section-frame grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-16 items-center">
@@ -28,14 +32,12 @@ const AboutSection = () => {
             </h2>
             <div className="squid-symbol-divider mb-4" aria-hidden="true"></div>
             <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-4 md:mb-6">
-              Sentinel Hack 6.0 is a premier 24-hour state level hackathon designed to bring together the brightest minds
-              and innovative thinkers. This event offers participants
-              the chance to collaborate, create, and solve real-world challenges through technology.
+              Sentinel Hack 6.0 is the ultimate 24-hour survival challenge where only the strongest coders will emerge victorious.
+              This high-stakes hackathon pits participants against impossible deadlines, complex challenges, and the pressure of competition.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-4 md:mb-6">
-              With mentorship from industry experts, workshops on cutting-edge technologies, and 
-              opportunities to network with tech leaders, Sentinel Hack 6.0 is the perfect platform to showcase
-              your skills and push the boundaries of what's possible. Let the games begin!
+              With elite mentorship from industry veterans, tactical workshops on bleeding-edge technologies, and 
+              networking opportunities with tech titans, Sentinel Hack 6.0 is your arena to prove your worth. Choose your weapon wisely - the games await!
             </p>
             <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 mt-6 md:mt-8">
               <div className="squid-card p-2 sm:p-3 md:p-4 text-center border border-squid-pink/30 hover:border-squid-pink/60 hover:scale-105 transition-all duration-300">

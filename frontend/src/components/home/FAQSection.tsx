@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, MapPin, DollarSign, Clock, Coffee, Users, ClipboardCheck, HelpCircle, Laptop, MessageCircle } from 'lucide-react';
+import { useIsMobile } from '../../hooks/use-mobile';
 
 const faqs = [
   {
@@ -16,55 +17,57 @@ const faqs = [
           className="underline text-squid-teal hover:text-squid-teal/80 transition"
         >
           Click here for the map.
-        </a>
+        </a>{" "}
+        Don't be late - the giant doll might be watching!
       </>
     ),
         icon: <MapPin className="h-4 w-4 text-squid-teal" />
   },
   {
     question: 'How much will it cost?',
-    answer: "The participation cost will be announced soon.",
+    answer: "The participation cost is ₹250 per head. Remember, in this game, the real prize is the innovation you build - and the bragging rights!",
     icon: <DollarSign className="h-4 w-4 text-squid-teal" />
   },
   {
     question: 'Duration?',
-    answer: "You will have 24 hours to build your product. A detailed schedule will be released closer to the event.",
+    answer: "You will have 24 hours to build your product - just like the players in the game who had to survive against all odds. A detailed schedule will be released closer to the event. Stay alert!",
     icon: <Clock className="h-4 w-4 text-squid-teal" />
   },
   {
     question: 'Food?',
-    answer: "We will provide free grub to keep you hacking for 24 hours. There will also be stalls for your convenience.",
+    answer: "We will provide free grub to keep you hacking for 24 hours straight. There will also be stalls for your convenience. Because even players need energy to survive the games!",
     icon: <Coffee className="h-4 w-4 text-squid-teal" />
   },
   {
     question: 'How do teams work?',
-    answer: "Teams can have 2-4 members. Cross-college teams are allowed and members can be from different colleges.",
+    answer: "Teams can have 2-4 members. Cross-college teams are allowed - just like how players from different backgrounds had to work together. Choose your allies wisely!",
     icon: <Users className="h-4 w-4 text-squid-teal" />
   },
   {
     question: 'How does registration work?',
-    answer: "Registration details will be announced soon. Stay tuned!",
+    answer: "Registration is now open! Click the 'Register Now' button and fill out the Google Form. Remember, spots are limited - don't get eliminated before the games even begin!",
     icon: <ClipboardCheck className="h-4 w-4 text-squid-teal" />
   },
   {
     question: 'What if this is my first hackathon?',
-    answer: "Don't worry – there will be mentors to help you. Plus, we have fun surprises for newcomers.",
+    answer: "Don't worry – there will be mentors to help you navigate the challenges. Plus, we have fun surprises for newcomers. Just like the players who started with nothing and became legends!",
     icon: <HelpCircle className="h-4 w-4 text-squid-teal" />
   },
   {
     question: 'What should I bring?',
-    answer: "Bring your college ID, laptop, charger, and spike busters.",
+    answer: "Bring your college ID, laptop, charger, and spike busters. Think of it as your survival kit for the 24-hour challenge. Leave your comfort zone behind!",
     icon: <Laptop className="h-4 w-4 text-squid-teal" />
   },
   {
     question: 'Anything else?',
-    answer: "Feel free to email us at sentinelhack@ksit.edu.in or reach out on Instagram if you have any questions.",
+    answer: "Feel free to email us at sentinelhack@ksit.edu.in or reach out on Instagram if you have any questions. Remember: In this game, collaboration is key - but only the best ideas survive!",
     icon: <MessageCircle className="h-4 w-4 text-squid-teal" />
   }
 ];
 
 const FAQSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
   const toggleFAQ = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -73,14 +76,16 @@ const FAQSection: React.FC = () => {
   return (
     <section id="faqs" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
       {/* Animated Background Shapes */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[12%] left-[5%] w-14 h-14 md:w-20 md:h-20 border-3 border-squid-teal/20 rounded-full squid-shape-drift-left squid-shape-pulse"></div>
-        <div className="absolute bottom-[20%] right-[6%] squid-shape-float squid-shape-pulse" style={{animationDelay: '1.5s'}}>
-          <div className="w-0 h-0 border-l-[20px] border-r-[20px] border-b-[35px] md:border-l-[28px] md:border-r-[28px] md:border-b-[48px] border-l-transparent border-r-transparent border-b-squid-pink/20"></div>
+      {!isMobile && (
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[12%] left-[5%] w-14 h-14 md:w-20 md:h-20 border-3 border-squid-teal/20 rounded-full"></div>
+          <div className="absolute bottom-[20%] right-[6%]">
+            <div className="w-0 h-0 border-l-[20px] border-r-[20px] border-b-[35px] md:border-l-[28px] md:border-r-[28px] md:border-b-[48px] border-l-transparent border-r-transparent border-b-squid-pink/20"></div>
+          </div>
+          <div className="absolute top-[50%] right-[3%] w-12 h-12 md:w-16 md:h-16 border-2 border-squid-teal/25"></div>
+          <div className="absolute bottom-[40%] left-[4%] w-10 h-10 md:w-14 md:h-14 border-2 border-squid-pink/20 rounded-full"></div>
         </div>
-        <div className="absolute top-[50%] right-[3%] w-12 h-12 md:w-16 md:h-16 border-2 border-squid-teal/25 squid-shape-spin squid-shape-pulse" style={{animationDelay: '2.5s'}}></div>
-        <div className="absolute bottom-[40%] left-[4%] w-10 h-10 md:w-14 md:h-14 border-2 border-squid-pink/20 rounded-full squid-shape-float-reverse squid-shape-pulse" style={{animationDelay: '3.5s'}}></div>
-      </div>
+      )}
       
       <div className="container mx-auto px-4 relative z-10 squid-section-frame">
         <motion.div 

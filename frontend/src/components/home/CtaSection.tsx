@@ -1,8 +1,10 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '../../hooks/use-mobile';
 
 const CtaSection = () => {
+  const isMobile = useIsMobile();
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -39,11 +41,14 @@ const CtaSection = () => {
             Join hundreds of innovators at Sentinel Hack 6.0 and be part of a transformative tech experience. Are you ready to play?
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <span 
-              className="squid-button-primary px-4 sm:px-6 py-2 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg cursor-default"
+            <a 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeCF9SGlPBZCZ8rTXKwjvAXHV14BBcKWy16FSkqST61GADn3Q/viewform?usp=publish-editor"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="squid-button-primary px-4 sm:px-6 py-2 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg"
             >
-              Registration Starts Soon
-            </span>
+              Register Now
+            </a>
             <a 
               href="mailto:sentinelhack@ksit.edu.in" 
               className="squid-button-outline px-4 sm:px-6 py-2 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg"
@@ -55,29 +60,33 @@ const CtaSection = () => {
       </div>
 
       {/* Animated Squid Game elements */}
-      <div className="absolute left-0 top-1/4 w-16 sm:w-24 md:w-32 h-16 sm:h-24 md:h-32 squid-shape-float squid-shape-pulse">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="text-squid-pink">
-          <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeWidth="8"/>
-        </svg>
-      </div>
-      
-      <div className="absolute right-0 bottom-1/4 w-20 sm:w-32 md:w-40 h-20 sm:h-32 md:h-40 squid-shape-drift-right squid-shape-pulse" style={{animationDelay: '1s'}}>
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="text-squid-teal">
-          <polygon points="100,20 180,180 20,180" fill="none" stroke="currentColor" strokeWidth="8"/>
-        </svg>
-      </div>
-      
-      <div className="absolute left-1/4 bottom-10 w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 squid-shape-spin squid-shape-pulse" style={{animationDelay: '2s'}}>
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="text-squid-pink">
-          <rect x="30" y="30" width="140" height="140" fill="none" stroke="currentColor" strokeWidth="8"/>
-        </svg>
-      </div>
-      
-      <div className="absolute right-1/4 top-10 w-12 sm:w-16 md:w-20 h-12 sm:h-16 md:h-20 squid-shape-float-reverse squid-shape-pulse" style={{animationDelay: '3s'}}>
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="text-squid-teal">
-          <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeWidth="6"/>
-        </svg>
-      </div>
+      {!isMobile && (
+        <>
+          <div className="absolute left-0 top-1/4 w-16 sm:w-24 md:w-32 h-16 sm:h-24 md:h-32">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="text-squid-pink">
+              <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeWidth="8"/>
+            </svg>
+          </div>
+
+          <div className="absolute right-0 bottom-1/4 w-20 sm:w-32 md:w-40 h-20 sm:h-32 md:h-40">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="text-squid-teal">
+              <polygon points="100,20 180,180 20,180" fill="none" stroke="currentColor" strokeWidth="8"/>
+            </svg>
+          </div>
+
+          <div className="absolute left-1/4 bottom-10 w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="text-squid-pink">
+              <rect x="30" y="30" width="140" height="140" fill="none" stroke="currentColor" strokeWidth="8"/>
+            </svg>
+          </div>
+
+          <div className="absolute right-1/4 top-10 w-12 sm:w-16 md:w-20 h-12 sm:h-16 md:h-20">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="text-squid-teal">
+              <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeWidth="6"/>
+            </svg>
+          </div>
+        </>
+      )}
     </section>
   );
 };

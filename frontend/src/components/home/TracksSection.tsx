@@ -2,42 +2,45 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Database, ShieldCheck, Cloud, Bot } from 'lucide-react';
+import { useIsMobile } from '../../hooks/use-mobile';
 
 const tracks = [
   {
     title: "Data Science",
     subtitle: "Analytics & ML Solutions",
-    description: "Develop data-driven solutions using machine learning, AI, and advanced analytics to solve real-world problems.",
+    description: "Develop data-driven solutions using machine learning, AI, and advanced analytics to solve real-world problems. Only the sharpest algorithms will survive.",
     icon: <Database className="h-8 w-8 text-squid-pink" />,
     color: 'squid-pink'
   },
   {
     title: "Cybersecurity & Blockchain",
     subtitle: "Digital Defense & Trust",
-    description: "Build secure systems, implement blockchain solutions, and create tools to protect digital assets and ensure data integrity.",
-    icon: <ShieldCheck className="h-8 w-8 text-squid-teal" />,
-    color: 'squid-teal'
+    description: "Build secure systems, implement blockchain solutions, and create tools to protect digital assets. Guard your code like your life depends on it.",
+    icon: <ShieldCheck className="h-8 w-8 text-squid-red" />,
+    color: 'squid-red'
   },
   {
     title: "Cloud Computing",
     subtitle: "Scalable Infrastructure",
-    description: "Create cloud-native applications, serverless solutions, and scalable architectures that leverage modern cloud platforms.",
-    icon: <Cloud className="h-8 w-8 text-squid-pink" />,
-    color: 'squid-pink'
+    description: "Create cloud-native applications, serverless solutions, and scalable architectures. Build systems that can handle the ultimate test.",
+    icon: <Cloud className="h-8 w-8 text-squid-teal" />,
+    color: 'squid-teal'
   },
   {
     title: "Agentic AI",
     subtitle: "Autonomous Intelligence",
-    description: "Build autonomous AI agents, multi-agent systems, and intelligent automation solutions that can reason and act independently.",
-    icon: <Bot className="h-8 w-8 text-squid-teal" />,
-    color: 'squid-teal'
+    description: "Build autonomous AI agents, multi-agent systems, and intelligent automation. Create entities that think, learn, and conquer.",
+    icon: <Bot className="h-8 w-8 text-squid-pink" />,
+    color: 'squid-pink'
   }
 ];
 
 const TracksSection = () => {
+  const isMobile = useIsMobile();
   return (
     <section id="tracks" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
-      {/* Animated Background Shapes */}
+      {/* Animated Background Shapes - Only on desktop */}
+      {!isMobile && (
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[10%] right-[5%] w-16 h-16 md:w-24 md:h-24 border-3 border-squid-pink/20 rounded-full squid-shape-float squid-shape-pulse"></div>
         <div className="absolute bottom-[20%] left-[3%] w-12 h-12 md:w-16 md:h-16 border-2 border-squid-teal/25 squid-shape-spin squid-shape-pulse" style={{animationDelay: '1s'}}></div>
@@ -46,6 +49,7 @@ const TracksSection = () => {
         </div>
         <div className="absolute bottom-[40%] right-[6%] w-14 h-14 md:w-20 md:h-20 border-3 border-squid-teal/20 rounded-full squid-shape-float-reverse squid-shape-pulse" style={{animationDelay: '3s'}}></div>
       </div>
+      )}
       
       <div className="container mx-auto px-4 relative z-10 squid-section-frame">
         <motion.div 
@@ -59,7 +63,7 @@ const TracksSection = () => {
             <span className="neon-text-pink">HACKATHON</span> <span className="neon-text-teal">TRACKS</span>
           </h2>
           <p className="max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-gray-300">
-            Choose your domain and showcase your skills in the tech arena that excites you the most.
+            Choose your battleground and prove your worth in the ultimate tech survival challenge. Only the best will emerge victorious.
           </p>
           
           {/* Squid Game Shapes */}
@@ -82,7 +86,7 @@ const TracksSection = () => {
             >
               <div className="flex flex-col items-center text-center">
                 <div className="mb-3 sm:mb-4 transform group-hover:scale-110 transition-transform duration-300">{track.icon}</div>
-                <h3 className={`text-lg sm:text-xl md:text-xl font-cyber mb-1 sm:mb-2 text-${track.color} group-hover:text-white transition-colors duration-300`}>{track.title}</h3>
+                <h3 className={`text-lg sm:text-xl md:text-xl font-cyber mb-1 sm:mb-2 ${track.color === 'squid-red' ? 'neon-text-red' : track.color === 'squid-pink' ? 'neon-text-pink' : 'neon-text-teal'} group-hover:text-white transition-colors duration-300`}>{track.title}</h3>
                 <h4 className="text-sm sm:text-base text-gray-400 mb-2 sm:mb-3 italic">{track.subtitle}</h4>
                 <p className="text-gray-300 text-xs sm:text-sm md:text-base">{track.description}</p>
               </div>
