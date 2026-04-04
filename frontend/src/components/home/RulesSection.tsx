@@ -6,23 +6,23 @@ import { Separator } from '@/components/ui/separator';
 
 const RulesSection = () => {
   const restrictions = [
-    "Participants should bring their own laptops, chargers, spike busters, and any additional hardware needed.",
-    "Participants need to bring their college ID cards.",
-    "Team leaders will receive a Registration Confirmation Mail upon entry finalization.",
-    "Snacks and Beverages will be provided.",
-    "Registration fee details will be announced soon.",
-    "Teams must have between 2 to 4 members."
-  ];
+  "Participants must bring their own laptops, chargers, extension boards/spike busters, and any additional hardware required for development.",
+  "A valid college ID card is mandatory for entry and verification.",
+  "Team leaders will receive a Registration Confirmation email once the team registration is successfully completed.",
+  "Snacks and beverages will be provided during the event.",
+  "Registration fee : 250/- per head",
+  "Each team must consist of a minimum of 2 and a maximum of 4 members."
+];
 
-  const regulations = [
-    "Participants must follow instructions from the organizing committee.",
-    "Once inside the venue, participants are not permitted to leave until the event ends.",
-    "Downloading entire templates during the event will lead to disqualification.",
-    "Judges' decisions are final.",
-    "Teams cannot withdraw once registered.",
-    "Terms and conditions apply."
-  ];
-
+const regulations = [
+  "Participants are required to strictly follow all instructions provided by the organizing committee.",
+  "Participants are not allowed to leave the venue during the event duration unless permitted by the organizers.",
+  "Use of pre-built templates or downloading complete project templates during the event is strictly prohibited and may lead to disqualification.",
+  "All decisions made by the judging panel will be final and binding.",
+  "Teams cannot withdraw from the competition once registration is confirmed.",
+  "Any form of malpractice, plagiarism, or misconduct will result in immediate disqualification.",
+  "Organizers reserve the right to modify rules or take necessary actions in unforeseen circumstances."
+];
   return (
     <section id="rules" className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 z-0 cyber-grid opacity-30"></div>
