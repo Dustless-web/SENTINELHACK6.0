@@ -158,6 +158,15 @@ const HeroSection = () => {
               Explore Tracks
             </button>
           </motion.div>
+          
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            className="text-base md:text-lg font-bold neon-text-teal mt-6 px-4 py-2 border-2 border-squid-teal rounded-lg bg-squid-teal/10 shadow-[0_0_15px_rgba(0,255,200,0.3)]"
+          >
+            ⚠️ Please read the guidelines before registering
+          </motion.p>
         </div>
       </div>
       
