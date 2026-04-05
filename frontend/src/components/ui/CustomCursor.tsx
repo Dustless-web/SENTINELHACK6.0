@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useIsMobile } from '../../hooks/use-mobile';
 
 const CustomCursor = () => {
+  const isMobile = useIsMobile();
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [visible, setVisible] = useState(true);
+
+  if (isMobile) {
+    return null;
+  }
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
