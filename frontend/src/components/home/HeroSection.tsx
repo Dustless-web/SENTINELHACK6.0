@@ -114,7 +114,7 @@ const HeroSection = () => {
             </h1>
             
             <p className="text-center text-xs sm:text-sm md:text-lg max-w-2xl mx-auto mt-4 text-gray-300 px-2 uppercase tracking-[0.2em] font-light">
-              24-Hour Survival Hackathon <br className="sm:hidden" /> <span className="hidden sm:inline">|</span> Only the strongest code will win
+              24-Hour State-Level Hackathon <br className="sm:hidden" /> <span className="hidden sm:inline">|</span> Only the strongest code will win
             </p>
           </motion.div>
 
@@ -124,7 +124,7 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,91,0.1)_1px,transparent_1px)] bg-[size:100%_4px] pointer-events-none"></div>
               <span className="relative z-10 text-[10px] sm:text-xs md:text-sm text-gray-400 uppercase tracking-[0.3em] font-bold block mb-1">Total Prize Pool</span>
               <p className="relative z-10 text-3xl sm:text-5xl md:text-6xl font-cyber text-squid-pink drop-shadow-[0_0_10px_rgba(255,0,91,0.8)] group-hover:scale-105 transition-transform duration-500">
-                ₹1,00,000+
+                1Lakh
               </p>
             </div>
           </motion.div>

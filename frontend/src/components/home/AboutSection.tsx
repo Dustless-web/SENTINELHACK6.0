@@ -58,7 +58,7 @@ const AboutSection = () => {
             <div className="squid-symbol-divider mb-6 w-24 h-1 bg-gradient-to-r from-squid-pink to-transparent" aria-hidden="true"></div>
             
             <p className="text-base md:text-lg text-gray-300 mb-6 leading-relaxed font-light">
-              Sentinel Hack 6.0 is the ultimate 24-hour survival challenge where only the strongest coders will emerge victorious.
+              Sentinel Hack 6.0 is the ultimate 24-hour state-level hackathon where only the strongest coders will emerge victorious.
               This high-stakes hackathon pits participants against impossible deadlines, complex challenges, and the pressure of competition.
             </p>
             <p className="text-base md:text-lg text-gray-300 mb-6 leading-relaxed font-light">
@@ -85,7 +85,7 @@ const AboutSection = () => {
               {/* Square Card */}
               <div className="relative group overflow-hidden bg-black/40 backdrop-blur-sm p-3 md:p-5 text-center border border-squid-teal/20 hover:border-squid-teal/80 hover:shadow-[0_0_20px_rgba(0,191,165,0.2)] transition-all duration-300 rounded-sm">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 border-2 border-squid-teal/10 group-hover:border-squid-teal/20 transition-all"></div>
-                <div className="relative z-10 text-xl sm:text-2xl md:text-4xl font-cyber text-squid-teal drop-shadow-[0_0_5px_rgba(0,191,165,0.8)] mb-1">₹1L+</div>
+                  <div className="relative z-10 text-lg sm:text-xl md:text-3xl font-cyber text-squid-teal drop-shadow-[0_0_5px_rgba(0,191,165,0.8)] mb-1 tracking-tight whitespace-nowrap leading-none">1 Lakh</div>
                 <div className="relative z-10 text-[10px] sm:text-xs md:text-sm text-gray-400 tracking-widest font-semibold">PRIZES</div>
               </div>
             </div>

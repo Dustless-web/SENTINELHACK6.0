@@ -40,7 +40,7 @@ const Footer = () => {
             </div>
             
             <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-6 max-w-sm">
-              The ultimate 24-hour survival hackathon. Build resilient systems, forge unbreakable code, and survive the games. 
+              The ultimate 24-hour state-level hackathon. Build resilient systems, forge unbreakable code, and survive the games. 
             </p>
             
             {/* VIP Symbols */}
