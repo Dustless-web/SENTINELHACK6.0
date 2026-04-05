@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -10,24 +9,65 @@ interface MainLayoutProps {
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-black via-[#080a16] to-[#04060d] relative overflow-hidden">
-      <div className="absolute inset-0 cyber-grid opacity-30 z-0"></div>
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_20%_8%,rgba(237,27,118,0.28),transparent_32%),radial-gradient(circle_at_82%_24%,rgba(6,123,123,0.2),transparent_36%),radial-gradient(circle_at_50%_92%,rgba(34,232,255,0.12),transparent_38%)]"></div>
-      <div className="absolute inset-0 z-0 opacity-[0.08] mix-blend-soft-light bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.6)_1px,transparent_0)] bg-[size:3px_3px]"></div>
-      <div className="absolute inset-0 z-0 opacity-[0.08] bg-[linear-gradient(180deg,transparent_0%,rgba(237,27,118,0.4)_48%,transparent_100%)] bg-[size:100%_4px]"></div>
-      <div className="absolute top-[-160px] left-[-120px] w-[460px] h-[460px] bg-fuchsia-500/20 rounded-full blur-3xl z-0"></div>
-      <div className="absolute bottom-[-190px] right-[-130px] w-[520px] h-[520px] bg-cyan-500/15 rounded-full blur-3xl z-0"></div>
+    <div className="min-h-screen flex flex-col bg-[#020202] relative overflow-hidden font-sans">
       
-      <Navbar />
-      <motion.main 
-        className="flex-grow relative z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        {children}
-      </motion.main>
-      <Footer />
+      {/* 1. Base Dark Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#0a0a0a] to-[#020202] z-0"></div>
+
+      {/* 2. Cyber Grid Layer */}
+      <div className="absolute inset-0 cyber-grid opacity-20 z-0 mix-blend-screen"></div>
+
+      {/* 3. Breathing Ambient Lights (Squid Pink & Teal) */}
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.1, 1],
+          opacity: [0.15, 0.25, 0.15]
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-squid-pink/20 rounded-full blur-[120px] pointer-events-none z-0"
+      />
+      
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.15, 1],
+          opacity: [0.1, 0.2, 0.1]
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-squid-teal/20 rounded-full blur-[120px] pointer-events-none z-0"
+      />
+
+      {/* 4. Film Grain / Noise Overlay */}
+      <div className="absolute inset-0 z-0 opacity-[0.04] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none"></div>
+
+      {/* 5. Animated CRT Scanline */}
+      <motion.div 
+        animate={{ top: ['-10%', '110%'] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+        className="absolute left-0 right-0 h-[8px] bg-gradient-to-b from-transparent via-squid-pink/20 to-transparent z-0 pointer-events-none"
+      />
+
+      {/* 6. Static CRT Horizontal Lines */}
+      <div className="absolute inset-0 z-0 opacity-[0.15] pointer-events-none bg-[linear-gradient(rgba(0,0,0,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]"></div>
+
+      {/* 7. Cinematic Vignette (Dark edges) */}
+      <div className="absolute inset-0 pointer-events-none z-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.9)]"></div>
+
+      {/* --- CONTENT WAPPER --- */}
+      <div className="relative z-50 flex flex-col min-h-screen">
+        <Navbar />
+        
+        {/* Page Content with Premium Entry Transition */}
+        <motion.main 
+          className="flex-grow flex flex-col"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} // Snappy bezier curve
+        >
+          {children}
+        </motion.main>
+        
+        <Footer />
+      </div>
     </div>
   );
 };

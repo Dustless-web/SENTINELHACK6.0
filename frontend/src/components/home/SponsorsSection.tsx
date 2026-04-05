@@ -25,7 +25,7 @@ const SponsorsSection = () => {
   };
 
   return (
-    <section id="sponsors" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
+    <section id="sponsors" className="py-8 sm:py-16 md:py-20 relative overflow-hidden">
       <div className="absolute inset-0 z-0 cyber-grid opacity-10"></div>
       
       {/* Animated Background Shapes */}
@@ -46,7 +46,7 @@ const SponsorsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-8 sm:mb-12 md:mb-16"
+          className="text-center mb-6 sm:mb-12 md:mb-16"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-cyber mb-3 sm:mb-4 md:mb-6">
             OUR <span className="neon-text-pink">SPONSORS</span>

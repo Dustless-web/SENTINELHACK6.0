@@ -8,12 +8,14 @@ import Index from "./pages/Index";
 import Schedule from "./pages/Schedule";
 import NotFound from "./pages/NotFound";
 import { AnimatePresence } from "framer-motion";
+import CustomCursor from "./components/ui/CustomCursor";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <CustomCursor />
       <Toaster />
       <Sonner />
       <BrowserRouter>

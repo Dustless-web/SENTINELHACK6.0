@@ -1,10 +1,12 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
 import { useIsMobile } from '../../hooks/use-mobile';
 import CountdownTimer from './CountdownTimer';
-import { REGISTRATION_FORM_URL } from '@/config/links';
+import AnimatedSquidBackground from './AnimatedSquidBackground';
+
+// Fallback for testing, replace with your actual import
+// import { REGISTRATION_FORM_URL } from '@/config/links';
+const REGISTRATION_FORM_URL = "#register";
 
 const HeroSection = () => {
   const [glitching, setGlitching] = useState(false);
@@ -12,13 +14,12 @@ const HeroSection = () => {
   const targetDate = new Date('2026-04-24T09:00:00');
 
   useEffect(() => {
-    // Only create glitch effect on desktop
     if (isMobile) return;
     
     const glitchInterval = setInterval(() => {
       setGlitching(true);
-      setTimeout(() => setGlitching(false), 200);
-    }, 5000);
+      setTimeout(() => setGlitching(false), 250);
+    }, 4500);
 
     return () => clearInterval(glitchInterval);
   }, [isMobile]);
@@ -30,30 +31,42 @@ const HeroSection = () => {
     }
   };
 
-  return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-10 overflow-hidden">
-      <div className="absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.2),rgba(0,0,0,0.86))]"></div>
-      
-      {!isMobile && (
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[10%] left-[5%] w-20 h-20 md:w-28 md:h-28 border-4 border-squid-pink/45 rounded-full"></div>
-        <div className="absolute top-[62%] left-[8%] w-12 h-12 md:w-16 md:h-16 border-3 border-squid-teal/35 rounded-full"></div>
-        <div className="absolute top-[35%] right-[3%] w-24 h-24 md:w-32 md:h-32 border-4 border-squid-pink/30 rounded-full"></div>
-        <div className="absolute bottom-[14%] right-[12%] w-14 h-14 md:w-20 md:h-20 border-3 border-squid-teal/30 rounded-full"></div>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+    }
+  };
 
-        <div className="absolute top-[25%] left-[15%]">
-          <div className="w-0 h-0 border-l-[24px] border-r-[24px] border-b-[42px] md:border-l-[36px] md:border-r-[36px] md:border-b-[62px] border-l-transparent border-r-transparent border-b-squid-pink/30"></div>
-        </div>
-        <div className="absolute bottom-[35%] left-[25%]">
-          <div className="w-0 h-0 border-l-[16px] border-r-[16px] border-b-[28px] md:border-l-[26px] md:border-r-[26px] md:border-b-[45px] border-l-transparent border-r-transparent border-b-squid-teal/25"></div>
-        </div>
-      </div>
-      )}
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+  };
+
+  return (
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-8 overflow-hidden bg-[#020202]">
       
-      <div className="container mx-auto px-4 z-10 mt-8">
-        <div className="flex flex-col items-center justify-center mb-8 md:mb-10">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 lg:gap-12">
-            <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 flex-shrink-0">
+      {/* Background Layers - FIXED Z-INDEX */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* The radial gradient is now safely behind the animations at z-0 */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.4)_0%,rgba(2,2,2,1)_100%)] z-0"></div>
+        
+        {/* The Animated Background is now sitting in front at z-10 with higher opacity */}
+        {!isMobile && <AnimatedSquidBackground density="high" className="z-10 opacity-70" />}
+      </div>
+      
+      <motion.div 
+        className="container mx-auto px-4 z-20 mt-4 md:mt-8 flex flex-col items-center"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        
+        {/* Header: Institution & Club */}
+        <motion.div variants={itemVariants} className="flex flex-col items-center justify-center mb-6 md:mb-10 w-full max-w-4xl">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-5 md:gap-8 bg-black/40 p-4 md:p-6 rounded-2xl border border-white/5 backdrop-blur-sm shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex-shrink-0 drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
               <img 
                 src="/lovable-uploads/492532dc-e4ce-49f8-8c94-b287bed8e7d8.png" 
                 alt="KSIT Logo" 
@@ -61,102 +74,96 @@ const HeroSection = () => {
                 loading="lazy"
               />
             </div>
-
             <div className="text-center">
-              <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-cyber tracking-wide mb-2 md:mb-2 text-white">
+              <h2 className="text-base sm:text-lg md:text-2xl font-cyber tracking-widest mb-1 text-white">
                 K S INSTITUTE OF TECHNOLOGY
               </h2>
-              <p className="text-xs sm:text-sm md:text-lg text-gray-300 mb-3 md:mb-2 uppercase tracking-wide">
+              <p className="text-[10px] sm:text-xs md:text-sm text-gray-400 mb-3 md:mb-4 uppercase tracking-[0.2em]">
                 Department of Computer Science and Engineering
               </p>
-              <p className={`inline-block text-sm sm:text-base md:text-2xl text-squid-pink font-cyber tracking-wide px-3 sm:px-4 py-1 rounded-md border border-squid-pink/60 bg-black/50 ${!isMobile ? 'shadow-[0_0_22px_rgba(255,31,127,0.35)]' : ''}`}>
-                FIREFOX CLUB PRESENTS
-              </p>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-squid-pink/40 bg-squid-pink/10 shadow-[0_0_15px_rgba(255,0,91,0.2)]">
+                <div className="w-2 h-2 rounded-full bg-squid-pink animate-pulse"></div>
+                <p className="text-xs sm:text-sm md:text-base text-squid-pink font-cyber tracking-widest">
+                  FIREFOX CLUB PRESENTS
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="w-full max-w-[150px] sm:max-w-[180px] md:max-w-[220px] mx-auto mb-5 sm:mb-7">
+        {/* Sentinel Hack Main Logo PNG */}
+        <motion.div variants={itemVariants} className="w-full max-w-[120px] sm:max-w-[160px] md:max-w-[200px] mx-auto mb-6 drop-shadow-[0_0_20px_rgba(255,0,91,0.4)]">
           <img 
             src="/lovable-uploads/4a4281f1-17f9-45e0-ad93-43017c48b04d.png" 
             alt="Sentinel Hack 6.0" 
             className="w-full h-full object-contain"
           />
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col items-center text-center">
-          <div
-            className="mb-5 sm:mb-8"
-          >
+        {/* Main Typography & Details */}
+        <div className="flex flex-col items-center text-center w-full max-w-5xl">
+          
+          <motion.div variants={itemVariants} className="mb-6 md:mb-8 relative w-full">
             <h1 
-              className={`text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-cyber mb-3 sm:mb-4 leading-[0.9] tracking-wide ${glitching ? 'glitch' : ''}`}
+              className={`text-center text-4xl sm:text-6xl md:text-8xl lg:text-[7.5rem] font-cyber mb-2 md:mb-4 leading-[0.9] tracking-wider relative z-10 ${glitching ? 'glitch' : ''}`}
               data-text="SENTINEL HACK 6.0"
             >
-              <span className="neon-text-pink">SENTINEL</span> 
-              <span className="text-white"> HACK</span> 
-              <span className="neon-text-teal">6.0</span>
+              <span className="text-squid-pink drop-shadow-[0_0_15px_rgba(255,0,91,0.5)]">SENTINEL</span> 
+              <span className="text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"> HACK</span> 
+              <span className="text-squid-teal drop-shadow-[0_0_15px_rgba(0,191,165,0.5)]"> 6.0</span>
             </h1>
-            <p className="text-sm sm:text-base md:text-xl max-w-2xl mx-auto mb-4 sm:mb-6 text-gray-300 px-2 uppercase tracking-[0.14em]">
-              24-HOUR SURVIVAL HACKATHON - ONLY THE STRONGEST CODE WILL WIN
+            
+            <p className="text-center text-xs sm:text-sm md:text-lg max-w-2xl mx-auto mt-4 text-gray-300 px-2 uppercase tracking-[0.2em] font-light">
+              24-Hour Survival Hackathon <br className="sm:hidden" /> <span className="hidden sm:inline">|</span> Only the strongest code will win
             </p>
-            <div className="squid-symbol-divider mb-4" aria-hidden="true"></div>
+          </motion.div>
 
-            <div
-              className="inline-block squid-card border-2 border-squid-pink/50 px-6 py-3 rounded-lg mb-4"
-            >
-              <span className="text-xs sm:text-sm text-gray-300 uppercase tracking-widest">Prize Pool</span>
-              <p className="text-3xl sm:text-4xl md:text-5xl font-cyber neon-text-pink">₹1,00,000+</p>
+          {/* Jackpot UI */}
+          <motion.div variants={itemVariants} className="mb-8">
+            <div className="relative overflow-hidden bg-black/60 backdrop-blur-md border border-squid-pink/50 px-8 py-4 md:px-12 md:py-6 rounded-xl shadow-[0_0_30px_rgba(255,0,91,0.2)] group">
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,91,0.1)_1px,transparent_1px)] bg-[size:100%_4px] pointer-events-none"></div>
+              <span className="relative z-10 text-[10px] sm:text-xs md:text-sm text-gray-400 uppercase tracking-[0.3em] font-bold block mb-1">Total Prize Pool</span>
+              <p className="relative z-10 text-3xl sm:text-5xl md:text-6xl font-cyber text-squid-pink drop-shadow-[0_0_10px_rgba(255,0,91,0.8)] group-hover:scale-105 transition-transform duration-500">
+                ₹1,00,000+
+              </p>
             </div>
+          </motion.div>
 
-            <p className="text-sm md:text-base text-gray-300 uppercase tracking-[0.22em]">Registration Closes In</p>
+          {/* Countdown Area */}
+          <motion.div variants={itemVariants} className="w-full mb-10">
+            <div className="flex items-center justify-center gap-4 mb-4 opacity-50">
+              <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-squid-teal"></div>
+              <p className="text-xs md:text-sm text-squid-teal uppercase tracking-[0.3em] font-bold">Registration Closes In</p>
+              <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-squid-teal"></div>
+            </div>
             <CountdownTimer targetDate={targetDate} />
-
-            {!isMobile && (
-            <div className="flex items-center justify-center gap-4 sm:gap-6 my-6">
-              <div className="w-8 h-8 sm:w-12 sm:h-12 border-2 border-squid-pink rounded-full"></div>
-              <div className="w-0 h-0 border-l-[12px] border-r-[12px] border-b-[21px] sm:border-l-[18px] sm:border-r-[18px] sm:border-b-[31px] border-l-transparent border-r-transparent border-b-squid-pink"></div>
-              <div className="w-8 h-8 sm:w-12 sm:h-12 border-2 border-squid-pink rotate-45"></div>
-            </div>
-            )}
-          </div>
+          </motion.div>
           
-          <div
-            className="flex flex-col sm:flex-row gap-4 mt-5 sm:mt-8"
-          >
+          {/* Action Buttons */}
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 md:gap-6 mt-2 w-full sm:w-auto px-4">
             <a
-              href={REGISTRATION_FORM_URL}
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeCF9SGlPBZCZ8rTXKwjvAXHV14BBcKWy16FSkqST61GADn3Q/viewform?usp=publish-editor"
               target="_blank"
               rel="noopener noreferrer"
-              className="squid-button-primary px-6 sm:px-8 py-3 text-xl sm:text-2xl animate-gradient"
-              style={{ backgroundSize: '200% 200%' }}
+              className="relative overflow-hidden w-full sm:w-auto font-cyber text-lg md:text-xl font-bold tracking-[0.15em] uppercase text-[#050505] bg-squid-pink px-10 py-4 md:px-12 md:py-5 group transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,0,91,0.6)] rounded-sm text-center"
             >
-              Register Now
+              <span className="absolute inset-0 w-full h-full bg-white/20 transform -skew-x-12 -translate-x-full group-hover:animate-[shine_1.5s_ease-in-out_infinite]"></span>
+              <span className="relative z-10">REGISTER NOW</span>
             </a>
+            
             <button 
               onClick={() => scrollToSection('tracks')}
-              className="squid-button-outline px-6 sm:px-8 py-3 text-xl sm:text-2xl"
+              className="relative overflow-hidden w-full sm:w-auto font-cyber text-lg md:text-xl tracking-[0.15em] uppercase text-white border-2 border-white/20 bg-black/50 backdrop-blur-sm px-10 py-4 md:px-12 md:py-5 group transition-all duration-300 hover:border-squid-teal hover:text-squid-teal hover:shadow-[0_0_20px_rgba(0,191,165,0.3)] rounded-sm text-center"
             >
-              Explore Tracks
+              <span className="absolute inset-0 w-full h-[2px] bg-squid-teal bottom-0 left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              <span className="relative z-10">EXPLORE TRACKS</span>
             </button>
-          </div>
+          </motion.div>
           
-          <p
-            className={`text-base md:text-lg font-bold neon-text-teal mt-6 px-4 py-2 border-2 border-squid-teal rounded-lg bg-squid-teal/10 squid-game-alert ${!isMobile ? 'shadow-[0_0_15px_rgba(0,255,200,0.3)]' : ''}`}
-          >
-            ⚠️ READ THE RULES CAREFULLY - VIOLATIONS LEAD TO ELIMINATION
-          </p>
+
         </div>
-      </div>
+      </motion.div>
       
-      <div className="absolute bottom-6 left-0 right-0 flex justify-center">
-        <button 
-          onClick={() => scrollToSection('about')}
-          className="cursor-pointer bg-transparent border-none text-squid-pink hover:text-white transition-colors duration-300"
-          aria-label="Scroll down"
-        >
-          <ChevronDown size={30} strokeWidth={2.5} />
-        </button>
-      </div>
     </section>
   );
 };
