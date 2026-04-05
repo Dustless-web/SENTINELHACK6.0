@@ -62,7 +62,7 @@ const HeroSection = () => {
               />
             </div>
 
-            <div className="text-center md:text-left">
+            <div className="text-center">
               <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-cyber tracking-wide mb-2 md:mb-2 text-white">
                 K S INSTITUTE OF TECHNOLOGY
               </h2>
