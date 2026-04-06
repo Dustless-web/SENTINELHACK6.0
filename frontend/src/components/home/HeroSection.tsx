@@ -68,7 +68,7 @@ const HeroSection = () => {
           <div className="flex flex-col md:flex-row items-center justify-center gap-5 md:gap-8 bg-black/40 p-4 md:p-6 rounded-2xl border border-white/5 backdrop-blur-sm shadow-[0_0_30px_rgba(0,0,0,0.5)]">
             <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex-shrink-0 drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
               <img 
-                src="/lovable-uploads/492532dc-e4ce-49f8-8c94-b287bed8e7d8.png" 
+                src="/Uploads/492532dc-e4ce-49f8-8c94-b287bed8e7d8.png" 
                 alt="KSIT Logo" 
                 className="w-full h-full object-contain"
                 loading="lazy"
@@ -94,7 +94,7 @@ const HeroSection = () => {
         {/* Sentinel Hack Main Logo PNG */}
         <motion.div variants={itemVariants} className="w-full max-w-[120px] sm:max-w-[160px] md:max-w-[200px] mx-auto mb-6 drop-shadow-[0_0_20px_rgba(255,0,91,0.4)]">
           <img 
-            src="/lovable-uploads/4a4281f1-17f9-45e0-ad93-43017c48b04d.png" 
+            src="/Uploads/4a4281f1-17f9-45e0-ad93-43017c48b04d.png" 
             alt="Sentinel Hack 6.0" 
             className="w-full h-full object-contain"
           />

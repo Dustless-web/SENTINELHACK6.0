@@ -7,8 +7,8 @@ const SponsorsSection = () => {
   // Sponsor data - replace with actual sponsor information
   const sponsors = [
     {
-      name: "Samartha InfoSolutions Pvt. Ltd.",
-      logo: "/lovable-uploads/samartha.png",
+      name: "Suveechi Technologies Pvt. Ltd.",
+      logo: "/Uploads/suveechi.png",
       tier: "Gold",
       website: "#"
     },

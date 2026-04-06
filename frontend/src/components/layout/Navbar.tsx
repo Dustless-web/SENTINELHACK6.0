@@ -92,7 +92,7 @@ const Navbar = () => {
             {/* Custom PNG Logo */}
             <div className={`mr-3 flex items-center transition-all duration-500 ${scrolled ? 'scale-90' : 'scale-100'}`}>
               <img 
-                src="/lovable-uploads/4a4281f1-17f9-45e0-ad93-43017c48b04d.png" 
+                src="/Uploads/4a4281f1-17f9-45e0-ad93-43017c48b04d.png" 
                 alt="Sentinel Hack 6.0 Logo" 
                 className="h-8 sm:h-10 w-auto object-contain drop-shadow-[0_0_8px_rgba(255,0,91,0.5)] group-hover:drop-shadow-[0_0_12px_rgba(0,191,165,0.6)] transition-all duration-300"
               />
