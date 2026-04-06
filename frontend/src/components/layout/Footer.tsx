@@ -59,7 +59,7 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex items-center gap-4">
               <a 
-                href="https://instagram.com/sentinelhack" 
+                href="https://www.instagram.com/firefox_club_" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center rounded border border-white/20 text-gray-400 hover:text-squid-pink hover:border-squid-pink hover:bg-squid-pink/10 hover:shadow-[0_0_15px_rgba(255,0,91,0.3)] transition-all duration-300"
