@@ -108,7 +108,7 @@ const SponsorsSection = () => {
               className="w-full max-w-sm"
             >
               <a 
-                href={sponsor.website} 
+                href="https://suveechi.co.in/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className={`block relative group h-full ${cardVisuals.bg} rounded-xl border ${cardVisuals.border} ${cardVisuals.shadow} transition-all duration-500 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)]`}
