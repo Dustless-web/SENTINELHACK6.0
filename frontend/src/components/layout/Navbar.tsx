@@ -4,7 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Replace with your actual import or routing logic for the registration form
-const REGISTRATION_FORM_URL = "#register"; 
+const REGISTRATION_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeCF9SGlPBZCZ8rTXKwjvAXHV14BBcKWy16FSkqST61GADn3Q/viewform?usp=publish-editor"; 
 
 const navItems = [
   { name: 'Home', path: '/', id: 'home' },
@@ -176,7 +176,7 @@ const Navbar = () => {
               
               <motion.div variants={linkVariants} className="pt-8 mt-4 border-t border-white/10">
                 <a
-                  href={REGISTRATION_FORM_URL}
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSeCF9SGlPBZCZ8rTXKwjvAXHV14BBcKWy16FSkqST61GADn3Q/viewform?usp=publish-editor"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
