@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '../../hooks/use-mobile';
-import CountdownTimer from './CountdownTimer';
 import AnimatedSquidBackground from './AnimatedSquidBackground';
 
 // Fallback for testing, replace with your actual import
-// import { REGISTRATION_FORM_URL } from '@/config/links';
-const REGISTRATION_FORM_URL = "#register";
+const REGISTRATION_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeCF9SGlPBZCZ8rTXKwjvAXHV14BBcKWy16FSkqST61GADn3Q/viewform?usp=publish-editor";
 
 const HeroSection = () => {
   const [glitching, setGlitching] = useState(false);
   const isMobile = useIsMobile();
-  const targetDate = new Date('2026-04-20T09:00:00');
 
   useEffect(() => {
     if (isMobile) return;
@@ -47,12 +44,9 @@ const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-8 overflow-hidden bg-[#020202]">
       
-      {/* Background Layers - FIXED Z-INDEX */}
+      {/* Background Layers */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* The radial gradient is now safely behind the animations at z-0 */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.4)_0%,rgba(2,2,2,1)_100%)] z-0"></div>
-        
-        {/* The Animated Background is now sitting in front at z-10 with higher opacity */}
         {!isMobile && <AnimatedSquidBackground density="high" className="z-10 opacity-70" />}
       </div>
       
@@ -124,25 +118,31 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,91,0.1)_1px,transparent_1px)] bg-[size:100%_4px] pointer-events-none"></div>
               <span className="relative z-10 text-[10px] sm:text-xs md:text-sm text-gray-400 uppercase tracking-[0.3em] font-bold block mb-1">Total Prize Pool</span>
               <p className="relative z-10 text-3xl sm:text-5xl md:text-6xl font-cyber text-squid-pink drop-shadow-[0_0_10px_rgba(255,0,91,0.8)] group-hover:scale-105 transition-transform duration-500">
-                1Lakh
+                1 Lakh
               </p>
             </div>
           </motion.div>
 
-          {/* Countdown Area */}
+          {/* Slots Warning Area */}
           <motion.div variants={itemVariants} className="w-full mb-10">
-            <div className="flex items-center justify-center gap-4 mb-4 opacity-50">
-              <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-squid-teal"></div>
-              <p className="text-xs md:text-sm text-squid-teal uppercase tracking-[0.3em] font-bold">Registration Closes In</p>
-              <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-squid-teal"></div>
+            <div className="flex flex-col items-center justify-center gap-3">
+              <div className="flex items-center gap-4 opacity-70">
+                <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-squid-teal"></div>
+                <p className="text-xs md:text-sm text-squid-teal uppercase tracking-[0.4em] font-bold">Registration Status</p>
+                <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-squid-teal"></div>
+              </div>
+              <div className="px-6 py-2 border-2 border-red-500/30 bg-red-500/5 rounded-full animate-pulse shadow-[0_0_15px_rgba(239,68,68,0.2)]">
+                <p className="text-red-500 font-cyber text-sm md:text-xl tracking-widest uppercase">
+                  ⚠️ ONLY A FEW SPOTS LEFT
+                </p>
+              </div>
             </div>
-            <CountdownTimer targetDate={targetDate} />
           </motion.div>
           
           {/* Action Buttons */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 md:gap-6 mt-2 w-full sm:w-auto px-4">
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeCF9SGlPBZCZ8rTXKwjvAXHV14BBcKWy16FSkqST61GADn3Q/viewform?usp=publish-editor"
+              href={REGISTRATION_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="relative overflow-hidden w-full sm:w-auto font-cyber text-lg md:text-xl font-bold tracking-[0.15em] uppercase text-[#050505] bg-squid-pink px-10 py-4 md:px-12 md:py-5 group transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,0,91,0.6)] rounded-sm text-center"
@@ -159,7 +159,6 @@ const HeroSection = () => {
               <span className="relative z-10">EXPLORE TRACKS</span>
             </button>
           </motion.div>
-          
 
         </div>
       </motion.div>
