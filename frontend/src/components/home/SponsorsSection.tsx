@@ -10,7 +10,12 @@ const SponsorsSection = () => {
     {
       name: "Suveechi Technologies Pvt. Ltd.",
       logo: "/Uploads/suveechi.png",
-      website: "#"
+      website: "https://suveechi.co.in/"
+    },
+    {
+      name: "VST TILLERS TRACTORS LTD",
+      logo: "/Uploads/VST.jpeg",
+      website:"https://www.vsttractors.com/"
     }
   ];
 
@@ -97,7 +102,7 @@ const SponsorsSection = () => {
         </motion.div>
 
         {/* Responsive, Aesthetic-First Asset Grid */}
-        <div className="flex justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
           {sponsors.map((sponsor, index) => (
             <motion.div
               key={sponsor.name}
@@ -108,7 +113,7 @@ const SponsorsSection = () => {
               className="w-full max-w-sm"
             >
               <a 
-                href="https://suveechi.co.in/" 
+                href={sponsor.website} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className={`block relative group h-full ${cardVisuals.bg} rounded-xl border ${cardVisuals.border} ${cardVisuals.shadow} transition-all duration-500 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)]`}
