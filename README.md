@@ -21,4 +21,4 @@ Sentinel Hack is a flagship hackathon that brings together innovative students t
 🛠️ Tech Stack
 ⚛️ React (Vite)
 🎨 Tailwind CSS
-🎬 Framer Motion
+🎬 Framer Motion.
