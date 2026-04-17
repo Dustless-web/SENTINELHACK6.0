@@ -83,18 +83,11 @@ const CtaSection = () => {
           {/* Cinematic Call to Action Buttons */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-5 md:gap-8">
             {/* Primary Action */}
-            <a 
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeCF9SGlPBZCZ8rTXKwjvAXHV14BBcKWy16FSkqST61GADn3Q/viewform?usp=publish-editor"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative overflow-hidden w-full sm:w-auto font-cyber text-lg md:text-xl font-bold tracking-[0.2em] uppercase text-[#050505] bg-squid-pink px-8 py-4 md:px-12 md:py-5 group transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,0,91,0.6)] rounded-sm"
+          <span
+              className="relative overflow-hidden w-full sm:w-auto font-cyber text-lg md:text-xl font-bold tracking-[0.2em] uppercase text-gray-500 bg-gray-800 border border-gray-600 px-8 py-4 md:px-12 md:py-5 rounded-sm cursor-not-allowed opacity-60 text-center"
             >
-              <span className="absolute inset-0 w-full h-full bg-white/20 transform -skew-x-12 -translate-x-full group-hover:animate-[shine_1.5s_ease-in-out_infinite]"></span>
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                REGISTER NOW
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-              </span>
-            </a>
+              <span className="relative z-10">REGISTRATIONS CLOSED</span>
+            </span>
             
             {/* Secondary Action */}
             <a 
