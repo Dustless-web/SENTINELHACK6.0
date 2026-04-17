@@ -125,16 +125,13 @@ const Navbar = () => {
             ))}
             
             {/* Premium Register Button */}
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeCF9SGlPBZCZ8rTXKwjvAXHV14BBcKWy16FSkqST61GADn3Q/viewform?usp=publish-editor"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative overflow-hidden whitespace-nowrap flex-shrink-0 font-cyber text-sm xl:text-base font-bold tracking-[0.15em] uppercase text-white bg-[#0a0a0a] border border-squid-pink px-6 py-2.5 ml-2 group transition-all duration-500 hover:shadow-[0_0_20px_rgba(255,0,91,0.4)]"
+            
+             <span
+              className="relative overflow-hidden whitespace-nowrap flex-shrink-0 font-cyber text-sm xl:text-base font-bold tracking-[0.15em] uppercase bg-[#0a0a0a] border border-gray-600 px-6 py-2.5 ml-2 text-gray-500 cursor-not-allowed opacity-60"
             >
-              <span className="absolute inset-0 w-full h-full bg-squid-pink/10 group-hover:bg-squid-pink/20 transition-colors duration-300"></span>
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-squid-pink transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-              <span className="relative z-10 drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">REGISTER</span>
-            </a>
+            <span className="relative z-10">REGISTRATIONS CLOSED</span>
+              </span>
+            
           </nav>
 
           {/* Mobile menu button */}
@@ -175,16 +172,13 @@ const Navbar = () => {
               ))}
               
               <motion.div variants={linkVariants} className="pt-8 mt-4 border-t border-white/10">
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSeCF9SGlPBZCZ8rTXKwjvAXHV14BBcKWy16FSkqST61GADn3Q/viewform?usp=publish-editor"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsOpen(false)}
-                  className="relative w-full block text-center font-cyber text-xl font-bold uppercase tracking-widest text-white bg-squid-pink/10 border border-squid-pink px-6 py-4 transition-all duration-300 hover:bg-squid-pink/20 hover:shadow-[0_0_25px_rgba(255,0,91,0.1)]"
-                >
-                  <span className="absolute inset-0 w-full h-full border-t-2 border-b-2 border-squid-pink transform scale-x-0 transition-transform duration-300 origin-center"></span>
-                  Initiate Registration
-                </a>
+                
+                  <span
+                   className="relative w-full block text-center font-cyber text-xl font-bold uppercase tracking-widest text-gray-500 bg-gray-800/30 border border-gray-600 px-6 py-4 cursor-not-allowed opacity-60"
+                 >
+                  Registrations Closed
+                 </span>
+                
               </motion.div>
             </div>
           </motion.div>

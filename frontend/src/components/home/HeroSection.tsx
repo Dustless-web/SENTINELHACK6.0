@@ -125,31 +125,19 @@ const HeroSection = () => {
 
           {/* Slots Warning Area */}
           <motion.div variants={itemVariants} className="w-full mb-10">
-            <div className="flex flex-col items-center justify-center gap-3">
-              <div className="flex items-center gap-4 opacity-70">
-                <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-squid-teal"></div>
-                <p className="text-xs md:text-sm text-squid-teal uppercase tracking-[0.4em] font-bold">Registration Status</p>
-                <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-squid-teal"></div>
-              </div>
-              <div className="px-6 py-2 border-2 border-red-500/30 bg-red-500/5 rounded-full animate-pulse shadow-[0_0_15px_rgba(239,68,68,0.2)]">
-                <p className="text-red-500 font-cyber text-sm md:text-xl tracking-widest uppercase">
-                  ⚠️ ONLY A FEW SPOTS LEFT
-                </p>
-              </div>
+            <div>
             </div>
           </motion.div>
           
           {/* Action Buttons */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 md:gap-6 mt-2 w-full sm:w-auto px-4">
-            <a
-              href={REGISTRATION_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative overflow-hidden w-full sm:w-auto font-cyber text-lg md:text-xl font-bold tracking-[0.15em] uppercase text-[#050505] bg-squid-pink px-10 py-4 md:px-12 md:py-5 group transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,0,91,0.6)] rounded-sm text-center"
+            
+           <span
+              className="relative overflow-hidden w-full sm:w-auto font-cyber text-lg md:text-xl font-bold tracking-[0.15em] uppercase text-gray-500 bg-gray-800 border border-gray-600 px-10 py-4 md:px-12 md:py-5 rounded-sm text-center cursor-not-allowed opacity-60"
             >
-              <span className="absolute inset-0 w-full h-full bg-white/20 transform -skew-x-12 -translate-x-full group-hover:animate-[shine_1.5s_ease-in-out_infinite]"></span>
-              <span className="relative z-10">REGISTER NOW</span>
-            </a>
+              <span className="relative z-10">REGISTRATIONS CLOSED</span>
+            </span>
+            
             
             <button 
               onClick={() => scrollToSection('tracks')}
