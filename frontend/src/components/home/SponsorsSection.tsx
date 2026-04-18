@@ -5,7 +5,7 @@ import { useIsMobile } from '../../hooks/use-mobile';
 const SponsorsSection = () => {
   const isMobile = useIsMobile();
   
-  // Data structure simplified to just represent visual assets
+  // Data structure updated to include Sri Varaha Constructions
   const sponsors = [
     {
       name: "Suveechi Technologies Pvt. Ltd.",
@@ -15,7 +15,12 @@ const SponsorsSection = () => {
     {
       name: "VST TILLERS TRACTORS LTD",
       logo: "/Uploads/VST.jpeg",
-      website:"https://www.vsttractors.com/"
+      website: "https://www.vsttractors.com/"
+    },
+    {
+      name: "Sri Varaha Constructions",
+      logo: "/Uploads/varaha.jpeg", // Ensure this matches your saved file name
+      website: "#" // Replace with their actual website URL
     }
   ];
 
@@ -102,7 +107,7 @@ const SponsorsSection = () => {
         </motion.div>
 
         {/* Responsive, Aesthetic-First Asset Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {sponsors.map((sponsor, index) => (
             <motion.div
               key={sponsor.name}
