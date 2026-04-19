@@ -19,7 +19,7 @@ const SponsorsSection = () => {
     },
     {
       name: "Sri Varaha Constructions",
-      logo: "/Uploads/sri-varaha.png", 
+      logo: "/Uploads/varaha.jpeg", 
       website: "#" 
     },
     {
