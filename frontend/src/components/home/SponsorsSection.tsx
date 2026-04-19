@@ -5,7 +5,7 @@ import { useIsMobile } from '../../hooks/use-mobile';
 const SponsorsSection = () => {
   const isMobile = useIsMobile();
   
-  // Data structure updated to include Sri Varaha Constructions
+  // Data structure simplified to just represent visual assets
   const sponsors = [
     {
       name: "Suveechi Technologies Pvt. Ltd.",
@@ -19,8 +19,18 @@ const SponsorsSection = () => {
     },
     {
       name: "Sri Varaha Constructions",
-      logo: "/Uploads/varaha.jpeg", // Ensure this matches your saved file name
-      website: "#" // Replace with their actual website URL
+      logo: "/Uploads/sri-varaha.png", 
+      website: "#" 
+    },
+    {
+      name: "Pizza Hut",
+      logo: "/Uploads/WhatsApp Image 2026-04-19 at 10.52.38 AM.jpeg", // Ensure this matches your saved filename
+      website: "https://www.pizzahut.co.in/" // Added regional URL, change if needed
+    },
+    {
+      name: "ADDA",
+      logo: "/Uploads/image.png", // Ensure this matches your saved filename
+      website: "#" // Replace with actual URL if they have one
     }
   ];
 
@@ -33,7 +43,7 @@ const SponsorsSection = () => {
 
   // Parallax animation for background environment
   const floatingVariant = {
-    animate: (custom: any) => ({
+    animate: (custom) => ({
       y: [0, custom.yOffset, 0],
       rotate: [0, custom.rotation],
       transition: {
@@ -137,7 +147,7 @@ const SponsorsSection = () => {
                     src={sponsor.logo} 
                     // Using standard textual name for accessibility/alt, not visual display
                     alt={`${sponsor.name} visual asset`} 
-                    className="max-w-full max-h-32 md:max-h-40 object-contain relative z-20 filter brightness-90 contrast-125 group-hover:brightness-110 group-hover:scale-105 transition-all duration-500 ease-in-out mb-4"
+                    className="max-w-full max-h-32 md:max-h-40 object-contain relative z-20 filter brightness-90 contrast-125 group-hover:brightness-110 group-hover:scale-105 transition-all duration-500 ease-in-out mb-4 bg-white/5 p-2 rounded-lg"
                     loading="lazy"
                   />
                   
