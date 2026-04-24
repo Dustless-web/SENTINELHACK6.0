@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '../../hooks/use-mobile';
 import AnimatedSquidBackground from './AnimatedSquidBackground';
-import CountdownTimer from './CountdownTimer'; // Added Import
+import CountdownTimer from './CountdownTimer'; 
 
 // Fallback for testing, replace with your actual import
 const REGISTRATION_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeCF9SGlPBZCZ8rTXKwjvAXHV14BBcKWy16FSkqST61GADn3Q/viewform?usp=publish-editor";
@@ -47,7 +47,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-8 overflow-hidden bg-[#020202]">
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-12 overflow-hidden bg-[#020202]">
       
       {/* Background Layers */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -56,14 +56,14 @@ const HeroSection = () => {
       </div>
       
       <motion.div 
-        className="container mx-auto px-4 z-20 mt-4 md:mt-8 flex flex-col items-center"
+        className="container mx-auto px-4 z-20 mt-4 md:mt-6 flex flex-col items-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         
         {/* Header: Institution & Club */}
-        <motion.div variants={itemVariants} className="flex flex-col items-center justify-center mb-6 md:mb-10 w-full max-w-4xl">
+        <motion.div variants={itemVariants} className="flex flex-col items-center justify-center mb-6 md:mb-8 w-full max-w-4xl">
           <div className="flex flex-col md:flex-row items-center justify-center gap-5 md:gap-8 bg-black/40 p-4 md:p-6 rounded-2xl border border-white/5 backdrop-blur-sm shadow-[0_0_30px_rgba(0,0,0,0.5)]">
             <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex-shrink-0 drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
               <img 
@@ -91,7 +91,7 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Sentinel Hack Main Logo PNG */}
-        <motion.div variants={itemVariants} className="w-full max-w-[120px] sm:max-w-[160px] md:max-w-[200px] mx-auto mb-6 drop-shadow-[0_0_20px_rgba(255,0,91,0.4)]">
+        <motion.div variants={itemVariants} className="w-full max-w-[120px] sm:max-w-[160px] md:max-w-[200px] mx-auto mb-4 md:mb-6 drop-shadow-[0_0_20px_rgba(255,0,91,0.4)]">
           <img 
             src="/Uploads/4a4281f1-17f9-45e0-ad93-43017c48b04d.png" 
             alt="Sentinel Hack 6.0" 
@@ -117,8 +117,13 @@ const HeroSection = () => {
             </p>
           </motion.div>
 
+          {/* Phase-Aware Countdown Timer - MOVED TO TOP */}
+          <motion.div variants={itemVariants} className="mb-8 md:mb-12 w-full">
+            <CountdownTimer startDate={hackathonStart} endDate={hackathonEnd} />
+          </motion.div>
+
           {/* Jackpot UI */}
-          <motion.div variants={itemVariants} className="mb-8">
+          <motion.div variants={itemVariants} className="mb-10">
             <div className="relative overflow-hidden bg-black/60 backdrop-blur-md border border-squid-pink/50 px-8 py-4 md:px-12 md:py-6 rounded-xl shadow-[0_0_30px_rgba(255,0,91,0.2)] group">
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,91,0.1)_1px,transparent_1px)] bg-[size:100%_4px] pointer-events-none"></div>
               <span className="relative z-10 text-[10px] sm:text-xs md:text-sm text-gray-400 uppercase tracking-[0.3em] font-bold block mb-1">Total Prize Pool</span>
@@ -127,15 +132,9 @@ const HeroSection = () => {
               </p>
             </div>
           </motion.div>
-
-          {/* Slots Warning Area (Empty spacer) */}
-          <motion.div variants={itemVariants} className="w-full mb-10">
-            <div>
-            </div>
-          </motion.div>
           
           {/* Action Buttons */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 md:gap-6 mt-2 w-full sm:w-auto px-4">
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 md:gap-6 w-full sm:w-auto px-4">
             
            <span
               className="relative overflow-hidden w-full sm:w-auto font-cyber text-lg md:text-xl font-bold tracking-[0.15em] uppercase text-gray-500 bg-gray-800 border border-gray-600 px-10 py-4 md:px-12 md:py-5 rounded-sm text-center cursor-not-allowed opacity-60"
@@ -150,11 +149,6 @@ const HeroSection = () => {
               <span className="absolute inset-0 w-full h-[2px] bg-squid-teal bottom-0 left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               <span className="relative z-10">EXPLORE TRACKS</span>
             </button>
-          </motion.div>
-
-          {/* Phase-Aware Countdown Timer */}
-          <motion.div variants={itemVariants} className="mt-14 mb-8 w-full">
-            <CountdownTimer startDate={hackathonStart} endDate={hackathonEnd} />
           </motion.div>
 
         </div>
