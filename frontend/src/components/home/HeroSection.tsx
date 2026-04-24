@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '../../hooks/use-mobile';
 import AnimatedSquidBackground from './AnimatedSquidBackground';
+import CountdownTimer from './CountdownTimer'; // Added Import
 
 // Fallback for testing, replace with your actual import
 const REGISTRATION_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeCF9SGlPBZCZ8rTXKwjvAXHV14BBcKWy16FSkqST61GADn3Q/viewform?usp=publish-editor";
@@ -9,6 +10,10 @@ const REGISTRATION_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeCF9SGl
 const HeroSection = () => {
   const [glitching, setGlitching] = useState(false);
   const isMobile = useIsMobile();
+
+  // Define strict start and end dates with IST offset (+05:30)
+  const hackathonStart = new Date('2026-04-24T09:00:00+05:30');
+  const hackathonEnd = new Date('2026-04-25T09:00:00+05:30');
 
   useEffect(() => {
     if (isMobile) return;
@@ -21,7 +26,7 @@ const HeroSection = () => {
     return () => clearInterval(glitchInterval);
   }, [isMobile]);
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -123,7 +128,7 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Slots Warning Area */}
+          {/* Slots Warning Area (Empty spacer) */}
           <motion.div variants={itemVariants} className="w-full mb-10">
             <div>
             </div>
@@ -138,7 +143,6 @@ const HeroSection = () => {
               <span className="relative z-10">REGISTRATIONS CLOSED</span>
             </span>
             
-            
             <button 
               onClick={() => scrollToSection('tracks')}
               className="relative overflow-hidden w-full sm:w-auto font-cyber text-lg md:text-xl tracking-[0.15em] uppercase text-white border-2 border-white/20 bg-black/50 backdrop-blur-sm px-10 py-4 md:px-12 md:py-5 group transition-all duration-300 hover:border-squid-teal hover:text-squid-teal hover:shadow-[0_0_20px_rgba(0,191,165,0.3)] rounded-sm text-center"
@@ -146,6 +150,11 @@ const HeroSection = () => {
               <span className="absolute inset-0 w-full h-[2px] bg-squid-teal bottom-0 left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               <span className="relative z-10">EXPLORE TRACKS</span>
             </button>
+          </motion.div>
+
+          {/* Phase-Aware Countdown Timer */}
+          <motion.div variants={itemVariants} className="mt-14 mb-8 w-full">
+            <CountdownTimer startDate={hackathonStart} endDate={hackathonEnd} />
           </motion.div>
 
         </div>
